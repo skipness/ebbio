@@ -16,8 +16,8 @@ class ApiProvider {
         responseType: ResponseType.plain,
       ));
       _dio.interceptors.add(InterceptorsWrapper(
-          onResponse: (Response response) =>
-              LZString.decompressFromUTF16(response.data)));
+          onResponse: (Response response) async =>
+              await LZString.decompressFromUTF16(response.data)));
     }
   }
 
